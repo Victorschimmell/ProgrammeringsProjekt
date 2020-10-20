@@ -1,6 +1,6 @@
 // GENERELLE VARIABLER
 int fps_max = 60; // Billeder i sekundet
-int menu = 1; //Menu 1 = main menu, menu 2 = gameplay, menu 3 = options, menu 4 = game over
+int menu = 1; //Menu 1 = main menu, menu 2 = gameplay, menu 3 = options, menu 4 = game over, menu 5 = pause menu
 int width = 1920; // Bredden på vinduet
 int height = 1080; // Højden på vinduet
 int speed = 10; // Den generelle hastighed for de fjendlige objekter
@@ -42,6 +42,10 @@ void draw(){
     }
     updateEnemy();
     checkCol();
+  }else if(menu==3){
+    background(bg_farve,bg_farve,bg_farve);
+    bgUpdate();
+    menuSetup();
   }
   // Fps-tælleren bliver slået til (lige meget hvilken menu man er i)
   fpsCounter();
