@@ -64,18 +64,40 @@ void menuSetup(){
     text("Options",width/2,height*1/5);
     textSize(30);
     
-    pushMatrix();
-    translate(width/2-buttonWidth/2,height*3/7);
-    
     //Button "FPS"
-    if(mouseX>width/2-buttonWidth/2-buttonWidth && mouseX<width/2+buttonWidth/2-buttonWidth && mouseY>height*3/7 && mouseY<height*3/7+buttonHeight){
+    pushMatrix();
+    translate(width/3-buttonWidth/2,height*3/7-buttonHeight);
+    if(mouseX>width/3-buttonWidth/2 && mouseX<width/3+buttonWidth/2 && mouseY>height*3/7-buttonHeight && mouseY<height*3/7){
       fill(0,0,0, 70);
-      rect(0,0,-buttonWidth,buttonHeight);
+      rect(0,0,buttonWidth,buttonHeight);
     }else{
       fill(0,0,0, 40);
-      rect(0,0,-buttonWidth,buttonHeight);
+      rect(0,0,buttonWidth,buttonHeight);
     }
+    popMatrix();
     
+    //Button "AUTO-RESTART"
+    pushMatrix();
+    translate(width/3-buttonWidth/2,height*3/7+buttonHeight/2);
+    if(mouseX>width/3-buttonWidth/2 && mouseX<width/3+buttonWidth/2 && mouseY>height*3/7+buttonHeight/2 && mouseY<height*3/7+buttonHeight*1.5){
+      fill(0,0,0, 70);
+      rect(0,0,buttonWidth,buttonHeight);
+    }else{
+      fill(0,0,0, 40);
+      rect(0,0,buttonWidth,buttonHeight);
+    }
+    popMatrix();
+    
+    //Button "Back"
+    pushMatrix();
+    translate(width/2-buttonWidth/2,height*5/7);
+    if(mouseX>width/2-buttonWidth/2 && mouseX<width/2+buttonWidth/2 && mouseY>height*5/7 && mouseY<height*5/7+buttonHeight){
+      fill(0,0,0, 70);
+      rect(0,0,buttonWidth,buttonHeight);
+    }else{
+      fill(0,0,0, 40);
+      rect(0,0,buttonWidth,buttonHeight);
+    }
     popMatrix();
   }
 }
@@ -89,5 +111,32 @@ void mousePressed(){
     }else if(mouseX>width/2-buttonWidth/2 && mouseX<width/2+buttonWidth/2 && mouseY>height*3/7+buttonHeight/6+2*buttonHeight+buttonHeight/6 && mouseY<height*3/7+buttonHeight/6+buttonHeight*3+buttonHeight/6){
       exit();
     }
+  }else if(menu==3){
+    if(mouseX>width/2-buttonWidth/2 && mouseX<width/2+buttonWidth/2 && mouseY>height*5/7 && mouseY<height*5/7+buttonHeight){
+      menu = 1;
+    }
+  }
+}
+
+void gameOver(){
+  textSize(95);
+  fill(255,255,255);
+  textAlign(CENTER);
+  
+  text("Game Over",width/2,height*1/5);
+  textSize(35);
+  
+  text("New Highscore!",width/2,height*1/5+height*1/12);
+  textSize(25);
+  text("25.917",width/2,height*1/5+height*1/8);
+  
+  //Button 1
+  if(o==100){
+    fill(255,255,255,0);
+    strokeWeight(7);
+    stroke(255,255,255);
+    rect(width/2+25,height/2,400,125,25,25,25,25);
+    rect(width/2-425,height/2,400,125,25,25,25,25);
+    noStroke();
   }
 }

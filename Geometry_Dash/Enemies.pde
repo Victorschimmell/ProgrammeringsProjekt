@@ -39,14 +39,14 @@ void updateEnemy(){
 void checkCol(){
   // Spike 1
   if(px+length>=enemySpike_X && px+length<=enemySpike_X+tw && py>=enemySpike_Y && py<=enemySpike_Y){
-    exit();
+    menu = 4;
   }else if(px>=enemySpike_X && px<=enemySpike_X+tw && py>=enemySpike_Y-tw){
-    exit();
+    menu = 4;
   // Spike 2
   }if(px+length>=enemySpike_X_1 && px+length<=enemySpike_X_1+tw && py>=enemySpike_Y_1 && py<=enemySpike_Y_1){
-    exit();
+    menu = 4;
   }else if(px>=enemySpike_X_1 && px<=enemySpike_X_1+tw && py>=enemySpike_Y_1-tw){
-    exit();
+    menu = 4;
   }
   //if(px+length>=enemySpike_Y && px)
 }

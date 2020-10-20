@@ -4,6 +4,7 @@ int menu = 1; //Menu 1 = main menu, menu 2 = gameplay, menu 3 = options, menu 4 
 int width = 1920; // Bredden på vinduet
 int height = 1080; // Højden på vinduet
 int speed = 10; // Den generelle hastighed for de fjendlige objekter
+int o = 0;
 
 // UI Variabler
 float bg_farve = 255; // Baggrunds startfarve
@@ -46,9 +47,19 @@ void draw(){
     background(bg_farve,bg_farve,bg_farve);
     bgUpdate();
     menuSetup();
+  }else if(menu==4){
+    if(o<100){
+      o = o+1;
+    }
+    fill(220,20,60,o);
+    rect(0,0,width,height);
+    gameOver();
   }
-  // Fps-tælleren bliver slået til (lige meget hvilken menu man er i)
-  fpsCounter();
+  
+  // Fps-tælleren bliver slået til (lige meget hvilken menu man er i - undtagen game over menuen ^^)
+  if(menu!=4){
+    fpsCounter();
+  }
 }
 
 // Denne funktion opdaterer farven på baggrunden
