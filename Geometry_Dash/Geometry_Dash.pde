@@ -4,7 +4,6 @@ int menu = 1; //Menu 1 = main menu, menu 2 = gameplay, menu 3 = options, menu 4 
 int width = 1920; // Bredden på vinduet
 int height = 1080; // Højden på vinduet
 int speed = 10; // Den generelle hastighed for de fjendlige objekter
-int o = 0;
 
 // UI Variabler
 float bg_farve = 255; // Baggrunds startfarve
@@ -20,6 +19,9 @@ float py = mapY; // Spillerens Y-værdi
 float vy = 0; // Y-værdien når man hopper
 float ay = 0; // Accelerationsværdien mht. tyngdekraft
 
+// Settings variabler
+boolean autoReplay = false; // Om autoreplay er slået til/fra
+
 void setup(){
   fullScreen();
   frameRate(fps_max);
@@ -33,8 +35,9 @@ void draw(){
     background(bg_farve,bg_farve,bg_farve);
     bgUpdate(); // Opdaterer farven på vores baggrund.
     menuSetup();
-    
+    cursor();
   }else if(menu==2){
+    noCursor();
     drawMap(); // Funktionen findes i MAP
     simulate(); // Funktionen findes i PLAYER
     spawnPlayer(); // Funktionen findes i PLAYER
@@ -47,13 +50,12 @@ void draw(){
     background(bg_farve,bg_farve,bg_farve);
     bgUpdate();
     menuSetup();
+    cursor();
   }else if(menu==4){
-    if(o<100){
-      o = o+1;
-    }
-    fill(220,20,60,o);
+    fill(220,20,60,80);
     rect(0,0,width,height);
     gameOver();
+    cursor();
   }
   
   // Fps-tælleren bliver slået til (lige meget hvilken menu man er i - undtagen game over menuen ^^)
@@ -77,5 +79,26 @@ void bgUpdate(){
     }else{
       bgT = true;
     }
+  }
+}
+
+void resetValues(){
+  //Spiller - resetter værdiere for spilleren
+  px = width/5;
+  py = mapY;
+  vy = 0;
+  ay = 0;
+  //Enemies - resetter fjenderne
+  spawnEnemy(1000,0,1);
+  spawnEnemy(1000,0,2);
+} 
+
+void playerDeath(){
+  if(autoReplay==false){
+    menu = 4;
+    resetValues();
+  }else{
+    resetValues();
+    menu = 2;
   }
 }

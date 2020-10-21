@@ -26,27 +26,27 @@ void menuSetup(){
     //button_1
     if(mouseX>width/2-buttonWidth/2 && mouseX<width/2+buttonWidth/2 && mouseY>height*3/7 && mouseY<height*3/7+buttonHeight){
       fill(0,0,0, 70);
-      rect(0,0,buttonWidth,buttonHeight);
+      rect(0,0,buttonWidth,buttonHeight,10,10,10,10);
     }else{
       fill(0,0,0, 40);
-      rect(0,0,buttonWidth,buttonHeight);
+      rect(0,0,buttonWidth,buttonHeight,10,10,10,10);
     }
     //button_2
     if(mouseX>width/2-buttonWidth/2 && mouseX<width/2+buttonWidth/2 && mouseY>height*3/7+buttonHeight+buttonHeight/6 && mouseY<height*3/7+buttonHeight/6+2*buttonHeight){
       fill(0,0,0, 70);
-      rect(0,buttonHeight+buttonHeight/6,buttonWidth,buttonHeight);
+      rect(0,buttonHeight+buttonHeight/6,buttonWidth,buttonHeight,10,10,10,10);
     }else{
       fill(0,0,0, 40);
-      rect(0,buttonHeight+buttonHeight/6,buttonWidth,buttonHeight);
+      rect(0,buttonHeight+buttonHeight/6,buttonWidth,buttonHeight,10,10,10,10);
     }
     
     //button_3
     if(mouseX>width/2-buttonWidth/2 && mouseX<width/2+buttonWidth/2 && mouseY>height*3/7+buttonHeight/6+2*buttonHeight+buttonHeight/6 && mouseY<height*3/7+buttonHeight/6+buttonHeight*3+buttonHeight/6){
       fill(0,0,0, 70);
-      rect(0,(buttonHeight+buttonHeight/6)*2,buttonWidth,buttonHeight);
+      rect(0,(buttonHeight+buttonHeight/6)*2,buttonWidth,buttonHeight,10,10,10,10);
     }else{
       fill(0,0,0, 40);
-      rect(0,(buttonHeight+buttonHeight/6)*2,buttonWidth,buttonHeight);
+      rect(0,(buttonHeight+buttonHeight/6)*2,buttonWidth,buttonHeight,10,10,10,10);
     }
     
     //button_text
@@ -69,10 +69,10 @@ void menuSetup(){
     translate(width/3-buttonWidth/2,height*3/7-buttonHeight);
     if(mouseX>width/3-buttonWidth/2 && mouseX<width/3+buttonWidth/2 && mouseY>height*3/7-buttonHeight && mouseY<height*3/7){
       fill(0,0,0, 70);
-      rect(0,0,buttonWidth,buttonHeight);
+      rect(0,0,buttonWidth,buttonHeight,10,10,10,10);
     }else{
       fill(0,0,0, 40);
-      rect(0,0,buttonWidth,buttonHeight);
+      rect(0,0,buttonWidth,buttonHeight,10,10,10,10);
     }
     popMatrix();
     
@@ -81,10 +81,10 @@ void menuSetup(){
     translate(width/3-buttonWidth/2,height*3/7+buttonHeight/2);
     if(mouseX>width/3-buttonWidth/2 && mouseX<width/3+buttonWidth/2 && mouseY>height*3/7+buttonHeight/2 && mouseY<height*3/7+buttonHeight*1.5){
       fill(0,0,0, 70);
-      rect(0,0,buttonWidth,buttonHeight);
+      rect(0,0,buttonWidth,buttonHeight,10,10,10,10);
     }else{
       fill(0,0,0, 40);
-      rect(0,0,buttonWidth,buttonHeight);
+      rect(0,0,buttonWidth,buttonHeight,10,10,10,10);
     }
     popMatrix();
     
@@ -93,16 +93,18 @@ void menuSetup(){
     translate(width/2-buttonWidth/2,height*5/7);
     if(mouseX>width/2-buttonWidth/2 && mouseX<width/2+buttonWidth/2 && mouseY>height*5/7 && mouseY<height*5/7+buttonHeight){
       fill(0,0,0, 70);
-      rect(0,0,buttonWidth,buttonHeight);
+      rect(0,0,buttonWidth,buttonHeight,10,10,10,10);
     }else{
       fill(0,0,0, 40);
-      rect(0,0,buttonWidth,buttonHeight);
+      rect(0,0,buttonWidth,buttonHeight,10,10,10,10);
     }
     popMatrix();
   }
 }
 
+// Denne funktion tjekker, om man klikker på knapperne, der er blevet opsat. Det gør den ved at tjekke, om klikket er mellem knappen x1 og x2 samt y1 og y2.
 void mousePressed(){
+  // Knapperne i main menu
   if(menu==1){
     if(mouseX>width/2-buttonWidth/2 && mouseX<width/2+buttonWidth/2 && mouseY>height*3/7 && mouseY<height*3/7+buttonHeight){
       menu = 2;
@@ -111,8 +113,24 @@ void mousePressed(){
     }else if(mouseX>width/2-buttonWidth/2 && mouseX<width/2+buttonWidth/2 && mouseY>height*3/7+buttonHeight/6+2*buttonHeight+buttonHeight/6 && mouseY<height*3/7+buttonHeight/6+buttonHeight*3+buttonHeight/6){
       exit();
     }
+  // Knapperne i options menu
   }else if(menu==3){
     if(mouseX>width/2-buttonWidth/2 && mouseX<width/2+buttonWidth/2 && mouseY>height*5/7 && mouseY<height*5/7+buttonHeight){
+      menu = 1;
+    }
+    if(mouseX>width/3-buttonWidth/2 && mouseX<width/3+buttonWidth/2 && mouseY>height*3/7+buttonHeight/2 && mouseY<height*3/7+buttonHeight*1.5){
+      if(autoReplay==false){
+        autoReplay = true;
+      }else{
+        autoReplay = false;
+      }
+    }
+  // Knapperne i game over menu
+  }else if(menu==4){
+    if(mouseX>width/2+25 && mouseX<width/2+425 && mouseY>height*5/7-235 && mouseY<height*5/7-110){
+      resetValues();
+      menu = 2;
+    }else if(mouseX>width/2-425 && mouseX<width/2-25 && mouseY>height*5/7-235 && mouseY<height*5/7-110){
       menu = 1;
     }
   }
@@ -131,12 +149,25 @@ void gameOver(){
   text("25.917",width/2,height*1/5+height*1/8);
   
   //Button 1
-  if(o==100){
-    fill(255,255,255,0);
-    strokeWeight(7);
-    stroke(255,255,255);
+  if(mouseX>width/2+25 && mouseX<width/2+425 && mouseY>height*5/7-235 && mouseY<height*5/7-110){
+    fill(255,255,255,20);
     rect(width/2+25,height/2,400,125,25,25,25,25);
-    rect(width/2-425,height/2,400,125,25,25,25,25);
-    noStroke();
+  }else{
+    fill(255,255,255,0);
+    rect(width/2+25,height/2,400,125,25,25,25,25);
   }
+  if(mouseX>width/2-425 && mouseX<width/2-25 && mouseY>height*5/7-235 && mouseY<height*5/7-110){
+    fill(255,255,255,20);
+    rect(width/2-425,height/2,400,125,25,25,25,25);
+  }else{
+    fill(255,255,255,0);
+    rect(width/2-425,height/2,400,125,25,25,25,25);
+  }
+  strokeWeight(7);
+  stroke(255,255,255);
+  fill(255,255,255);
+  textSize(55);
+  text("Replay",width/2+225,height/2+height/10-25);
+  text("Back to menu",width/2-225,height/2+height/10-25);
+  noStroke();
 }

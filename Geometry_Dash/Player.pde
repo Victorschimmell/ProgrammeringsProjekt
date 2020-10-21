@@ -1,5 +1,5 @@
 void simulate() {
-  ay = .75;
+  ay = .90  ;
   vy+=ay;
   py+=vy;
   if (py>height*3/4) { 
