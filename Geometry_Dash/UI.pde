@@ -4,6 +4,14 @@ int h = height;
 int buttonWidth = width/6;
 int buttonHeight = height/10;
 
+color vol = color(0,0,0, 40); // Normal farve på de ikke aktiverede volume-knapper
+color vol_h = color(0,0,0, 70); // Normal farve for hover af de ikke aktiverede volume-knapper
+color vol_a = color(60, 60, 60, 90); // Farve for de aktiverede volume-knapper
+color vol_ha = color(130, 130, 130, 90); // Farve for hover af de aktiverede volume-knapper
+
+int uX = width/2+200;
+int uY = height*3/7-80;
+
 void fpsCounter(){
   textSize(12);
   fill(100,100,100);
@@ -11,6 +19,7 @@ void fpsCounter(){
 }
 
 void menuSetup(){
+  // MAIN MENU
   if(menu==1){
     //TITLE
     textSize(75);
@@ -57,6 +66,7 @@ void menuSetup(){
     text("Play",buttonWidth/2,buttonHeight/2+buttonHeight/9);
     popMatrix();
   
+  // SETTINGS MENU
   }else if(menu==3){
     textSize(75);
     fill(100,100,100);
@@ -88,6 +98,279 @@ void menuSetup(){
     }
     popMatrix();
     
+    //Button "Volume"
+    pushMatrix();
+    textSize(40);
+    fill(100,100,100);
+    text("Volume",width/2+165,height*3/7-80);
+    translate(width/2+200,height*3/7-80);
+    
+    // VISUELLE
+    if(volume==0.25){
+      //5
+      if(mouseX>uX+65 && mouseX<uX+125 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(65,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(70,45,50,10,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(65,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(70,45,50,10,5,5,5,5);
+      }
+      //4
+      if(mouseX>uX && mouseX<uX+65 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(0,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(5,45,50,10,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(0,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(5,45,50,10,5,5,5,5);
+      }
+      //3
+      if(mouseX>uX-65 && mouseX<uX && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(-65,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-60,45,50,10,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(-65,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-60,45,50,10,5,5,5,5);
+      }
+      //2
+      if(mouseX>uX-130 && mouseX<uX-65 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(-130,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-125,45,50,10,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(-130,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-125,45,50,10,5,5,5,5);
+      }
+      //1
+      if(mouseX>uX-195 && mouseX<uX-130 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(-195,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-190,45,50,10,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(-195,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-190,45,50,10,5,5,5,5);
+      }
+    }else if(volume==0.2){
+      if(mouseX>uX+65 && mouseX<uX+125 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(65,20,60,60,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(65,20,60,60,5,5,5,5);
+      }
+      //4
+      if(mouseX>uX && mouseX<uX+65 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(0,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(5,45,50,10,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(0,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(5,45,50,10,5,5,5,5);
+      }
+      //3
+      if(mouseX>uX-65 && mouseX<uX && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(-65,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-60,45,50,10,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(-65,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-60,45,50,10,5,5,5,5);
+      }
+      //2
+      if(mouseX>uX-130 && mouseX<uX-65 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(-130,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-125,45,50,10,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(-130,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-125,45,50,10,5,5,5,5);
+      }
+      //1
+      if(mouseX>uX-195 && mouseX<uX-130 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(-195,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-190,45,50,10,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(-195,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-190,45,50,10,5,5,5,5);
+      }
+    }else if(volume==0.15){
+      if(mouseX>uX+65 && mouseX<uX+125 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(65,20,60,60,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(65,20,60,60,5,5,5,5);
+      }
+      //4
+      if(mouseX>uX && mouseX<uX+65 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(0,20,60,60,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(0,20,60,60,5,5,5,5);
+      }
+      //3
+      if(mouseX>uX-65 && mouseX<uX && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(-65,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-60,45,50,10,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(-65,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-60,45,50,10,5,5,5,5);
+      }
+      //2
+      if(mouseX>uX-130 && mouseX<uX-65 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(-130,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-125,45,50,10,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(-130,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-125,45,50,10,5,5,5,5);
+      }
+      //1
+      if(mouseX>uX-195 && mouseX<uX-130 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(-195,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-190,45,50,10,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(-195,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-190,45,50,10,5,5,5,5);
+      }
+    }else if(volume==0.1){
+      if(mouseX>uX+65 && mouseX<uX+125 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(65,20,60,60,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(65,20,60,60,5,5,5,5);
+      }
+      //4
+      if(mouseX>uX && mouseX<uX+65 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(0,20,60,60,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(0,20,60,60,5,5,5,5);
+      }
+      //3
+      if(mouseX>uX-65 && mouseX<uX && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(-65,20,60,60,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(-65,20,60,60,5,5,5,5);
+      }
+      //2
+      if(mouseX>uX-130 && mouseX<uX-65 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(-130,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-125,45,50,10,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(-130,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-125,45,50,10,5,5,5,5);
+      }
+      //1
+      if(mouseX>uX-195 && mouseX<uX-130 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(-195,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-190,45,50,10,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(-195,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-190,45,50,10,5,5,5,5);
+      }
+    }else if(volume==0.05){
+      if(mouseX>uX+65 && mouseX<uX+125 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(65,20,60,60,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(65,20,60,60,5,5,5,5);
+      }
+      //4
+      if(mouseX>uX && mouseX<uX+65 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(0,20,60,60,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(0,20,60,60,5,5,5,5);
+      }
+      //3
+      if(mouseX>uX-65 && mouseX<uX && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(-65,20,60,60,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(-65,20,60,60,5,5,5,5);
+      }
+      //2
+      if(mouseX>uX-130 && mouseX<uX-65 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(-130,20,60,60,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(-130,20,60,60,5,5,5,5);
+      }
+      //1
+      if(mouseX>uX-195 && mouseX<uX-130 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(-195,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-190,45,50,10,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(-195,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-190,45,50,10,5,5,5,5);
+      }
+    }
+    
+   popMatrix();
+    
     //Button "Back"
     pushMatrix();
     translate(width/2-buttonWidth/2,height*5/7);
@@ -107,30 +390,59 @@ void mousePressed(){
   // Knapperne i main menu
   if(menu==1){
     if(mouseX>width/2-buttonWidth/2 && mouseX<width/2+buttonWidth/2 && mouseY>height*3/7 && mouseY<height*3/7+buttonHeight){
+      button.play();
       menu = 2;
     }else if(mouseX>width/2-buttonWidth/2 && mouseX<width/2+buttonWidth/2 && mouseY>height*3/7+buttonHeight+buttonHeight/6 && mouseY<height*3/7+buttonHeight/6+2*buttonHeight){
+      button.play();
       menu = 3;
     }else if(mouseX>width/2-buttonWidth/2 && mouseX<width/2+buttonWidth/2 && mouseY>height*3/7+buttonHeight/6+2*buttonHeight+buttonHeight/6 && mouseY<height*3/7+buttonHeight/6+buttonHeight*3+buttonHeight/6){
+      button.play();
       exit();
     }
   // Knapperne i options menu
   }else if(menu==3){
     if(mouseX>width/2-buttonWidth/2 && mouseX<width/2+buttonWidth/2 && mouseY>height*5/7 && mouseY<height*5/7+buttonHeight){
+      button.play();
       menu = 1;
     }
     if(mouseX>width/3-buttonWidth/2 && mouseX<width/3+buttonWidth/2 && mouseY>height*3/7+buttonHeight/2 && mouseY<height*3/7+buttonHeight*1.5){
       if(autoReplay==false){
+        button.play();
         autoReplay = true;
       }else{
+        button.play();
         autoReplay = false;
       }
+    }if(mouseX>uX+65 && mouseX<uX+125 && mouseY>uY+20 && mouseY<uY+80){
+      button.play();
+      volume = 0.25;
+      menuSound.amp(volume);
+    }else if(mouseX>uX && mouseX<uX+65 && mouseY>uY+20 && mouseY<uY+80){
+      button.play();
+      volume = 0.2;
+      menuSound.amp(volume);
+    }else if(mouseX>uX-65 && mouseX<uX && mouseY>uY+20 && mouseY<uY+80){
+      button.play();
+      volume = 0.15;
+      menuSound.amp(volume);
+    }else if(mouseX>uX-130 && mouseX<uX-65 && mouseY>uY+20 && mouseY<uY+80){
+      button.play();
+      volume = 0.1;
+      menuSound.amp(volume);
+    }else if(mouseX>uX-195 && mouseX<uX-130 && mouseY>uY+20 && mouseY<uY+80){
+      button.play();
+      volume = 0.05;
+      menuSound.amp(volume);
     }
+    
   // Knapperne i game over menu
   }else if(menu==4){
     if(mouseX>width/2+25 && mouseX<width/2+425 && mouseY>height*5/7-235 && mouseY<height*5/7-110){
+      button.play();
       resetValues();
       menu = 2;
     }else if(mouseX>width/2-425 && mouseX<width/2-25 && mouseY>height*5/7-235 && mouseY<height*5/7-110){
+      button.play();
       menu = 1;
     }
   }
@@ -146,7 +458,7 @@ void gameOver(){
   
   text("New Highscore!",width/2,height*1/5+height*1/12);
   textSize(25);
-  text("25.917",width/2,height*1/5+height*1/8);
+  text(finalScore,width/2,height*1/5+height*1/8);
   
   //Button 1
   if(mouseX>width/2+25 && mouseX<width/2+425 && mouseY>height*5/7-235 && mouseY<height*5/7-110){

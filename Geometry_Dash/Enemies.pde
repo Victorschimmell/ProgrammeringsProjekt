@@ -8,7 +8,6 @@ boolean enemySpawned = false; // Checker om en spike er genereret
 float timer = 0;
 float timer_2 = 0;
 float randomN;
-int latestSpike = 0; //
 
 
 // FUNKTIONEN DER KALDER EN ENEMY

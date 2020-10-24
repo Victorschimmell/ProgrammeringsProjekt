@@ -11,7 +11,9 @@ void drawMap(){
   if(timer==110){
     timer=0;
     spawnEnemy(0,0,1);
-  }if(timer_2==110+(randomN/10)){
+  }
+  int randomN_rounded = round(randomN/10);
+  if(timer_2==110+(randomN_rounded)){
     timer_2=0;
     spawnEnemy(0,0,2);
   }
