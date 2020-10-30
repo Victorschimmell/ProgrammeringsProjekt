@@ -36,11 +36,13 @@ void setup(){
   frameRate(fps_max);
   smooth(); 
   noStroke();
-  menuSound = new SoundFile(this, "Menu.mp3");
-  menuSound.amp(volume);
-  menuSound.loop();
-  button = new SoundFile(this, "Button.mp3");
-  button.amp(0.6);
+  
+  menuSound = new SoundFile(this, "Menu.mp3"); // Sætter variablen for vores menu-sound lydfil.
+  menuSound.amp(volume); // Sætter volumen for lydfilen til den værdi, vores volumen variabel er sat til.
+  menuSound.loop(); // Slår lyden til med loop-funktionen i brug.
+  
+  button = new SoundFile(this, "Button.mp3"); // Sætter variablen for vores knap lydfil.
+  button.amp(0.6); // Sætter volumen til en konstant (og derved ikke justerbar) værdi.
 }
 
 void draw(){
@@ -104,13 +106,13 @@ void resetValues(){
   vy = 0;
   ay = 0;
   points = 0;
-  //Enemies - resetter fjenderne
+  //Enemies - resetter fjenderne (spikes)
   spawnEnemy(1000,0,1);
   spawnEnemy(1000,0,2);
 } 
 
 void playerDeath(){
-  if(autoReplay==false){
+  if(autoReplay==false){ // Tjekker om man har slået autoplay til.
     finalScore = points;
     menu = 4;
     resetValues();

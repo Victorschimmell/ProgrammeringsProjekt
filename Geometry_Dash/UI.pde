@@ -106,7 +106,7 @@ void menuSetup(){
     translate(width/2+200,height*3/7-80);
     
     // VISUELLE
-    if(volume==0.25){
+    if(volume==0.2){
       //5
       if(mouseX>uX+65 && mouseX<uX+125 && mouseY>uY+20 && mouseY<uY+80){
         fill(vol_ha);
@@ -118,62 +118,6 @@ void menuSetup(){
         rect(65,20,60,60,5,5,5,5);
         fill(200,200,200);
         rect(70,45,50,10,5,5,5,5);
-      }
-      //4
-      if(mouseX>uX && mouseX<uX+65 && mouseY>uY+20 && mouseY<uY+80){
-        fill(vol_ha);
-        rect(0,20,60,60,5,5,5,5);
-        fill(200,200,200);
-        rect(5,45,50,10,5,5,5,5);
-      }else{
-        fill(vol_a);
-        rect(0,20,60,60,5,5,5,5);
-        fill(200,200,200);
-        rect(5,45,50,10,5,5,5,5);
-      }
-      //3
-      if(mouseX>uX-65 && mouseX<uX && mouseY>uY+20 && mouseY<uY+80){
-        fill(vol_ha);
-        rect(-65,20,60,60,5,5,5,5);
-        fill(200,200,200);
-        rect(-60,45,50,10,5,5,5,5);
-      }else{
-        fill(vol_a);
-        rect(-65,20,60,60,5,5,5,5);
-        fill(200,200,200);
-        rect(-60,45,50,10,5,5,5,5);
-      }
-      //2
-      if(mouseX>uX-130 && mouseX<uX-65 && mouseY>uY+20 && mouseY<uY+80){
-        fill(vol_ha);
-        rect(-130,20,60,60,5,5,5,5);
-        fill(200,200,200);
-        rect(-125,45,50,10,5,5,5,5);
-      }else{
-        fill(vol_a);
-        rect(-130,20,60,60,5,5,5,5);
-        fill(200,200,200);
-        rect(-125,45,50,10,5,5,5,5);
-      }
-      //1
-      if(mouseX>uX-195 && mouseX<uX-130 && mouseY>uY+20 && mouseY<uY+80){
-        fill(vol_ha);
-        rect(-195,20,60,60,5,5,5,5);
-        fill(200,200,200);
-        rect(-190,45,50,10,5,5,5,5);
-      }else{
-        fill(vol_a);
-        rect(-195,20,60,60,5,5,5,5);
-        fill(200,200,200);
-        rect(-190,45,50,10,5,5,5,5);
-      }
-    }else if(volume==0.2){
-      if(mouseX>uX+65 && mouseX<uX+125 && mouseY>uY+20 && mouseY<uY+80){
-        fill(vol_ha);
-        rect(65,20,60,60,5,5,5,5);
-      }else{
-        fill(vol_a);
-        rect(65,20,60,60,5,5,5,5);
       }
       //4
       if(mouseX>uX && mouseX<uX+65 && mouseY>uY+20 && mouseY<uY+80){
@@ -235,9 +179,13 @@ void menuSetup(){
       if(mouseX>uX && mouseX<uX+65 && mouseY>uY+20 && mouseY<uY+80){
         fill(vol_ha);
         rect(0,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(5,45,50,10,5,5,5,5);
       }else{
         fill(vol_a);
         rect(0,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(5,45,50,10,5,5,5,5);
       }
       //3
       if(mouseX>uX-65 && mouseX<uX && mouseY>uY+20 && mouseY<uY+80){
@@ -295,6 +243,58 @@ void menuSetup(){
       if(mouseX>uX-65 && mouseX<uX && mouseY>uY+20 && mouseY<uY+80){
         fill(vol_ha);
         rect(-65,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-60,45,50,10,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(-65,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-60,45,50,10,5,5,5,5);
+      }
+      //2
+      if(mouseX>uX-130 && mouseX<uX-65 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(-130,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-125,45,50,10,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(-130,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-125,45,50,10,5,5,5,5);
+      }
+      //1
+      if(mouseX>uX-195 && mouseX<uX-130 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(-195,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-190,45,50,10,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(-195,20,60,60,5,5,5,5);
+        fill(200,200,200);
+        rect(-190,45,50,10,5,5,5,5);
+      }
+    }else if(volume==0.05){
+      if(mouseX>uX+65 && mouseX<uX+125 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(65,20,60,60,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(65,20,60,60,5,5,5,5);
+      }
+      //4
+      if(mouseX>uX && mouseX<uX+65 && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(0,20,60,60,5,5,5,5);
+      }else{
+        fill(vol_a);
+        rect(0,20,60,60,5,5,5,5);
+      }
+      //3
+      if(mouseX>uX-65 && mouseX<uX && mouseY>uY+20 && mouseY<uY+80){
+        fill(vol_ha);
+        rect(-65,20,60,60,5,5,5,5);
       }else{
         fill(vol_a);
         rect(-65,20,60,60,5,5,5,5);
@@ -323,7 +323,7 @@ void menuSetup(){
         fill(200,200,200);
         rect(-190,45,50,10,5,5,5,5);
       }
-    }else if(volume==0.05){
+    }else if(volume==0){
       if(mouseX>uX+65 && mouseX<uX+125 && mouseY>uY+20 && mouseY<uY+80){
         fill(vol_ha);
         rect(65,20,60,60,5,5,5,5);
@@ -415,23 +415,23 @@ void mousePressed(){
       }
     }if(mouseX>uX+65 && mouseX<uX+125 && mouseY>uY+20 && mouseY<uY+80){
       button.play();
-      volume = 0.25;
+      volume = 0.2;
       menuSound.amp(volume);
     }else if(mouseX>uX && mouseX<uX+65 && mouseY>uY+20 && mouseY<uY+80){
       button.play();
-      volume = 0.2;
+      volume = 0.15;
       menuSound.amp(volume);
     }else if(mouseX>uX-65 && mouseX<uX && mouseY>uY+20 && mouseY<uY+80){
       button.play();
-      volume = 0.15;
+      volume = 0.10;
       menuSound.amp(volume);
     }else if(mouseX>uX-130 && mouseX<uX-65 && mouseY>uY+20 && mouseY<uY+80){
       button.play();
-      volume = 0.1;
+      volume = 0.05;
       menuSound.amp(volume);
     }else if(mouseX>uX-195 && mouseX<uX-130 && mouseY>uY+20 && mouseY<uY+80){
       button.play();
-      volume = 0.05;
+      volume = 0;
       menuSound.amp(volume);
     }
     

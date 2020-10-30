@@ -7,7 +7,7 @@ void drawMap(){
   fill(130,130,130);
   rect(0,mapY,width,height);
   
-  //Enemies
+  // Spawner enemies ved hjælp af to timers.
   if(timer==110){
     timer=0;
     spawnEnemy(0,0,1);
