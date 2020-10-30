@@ -31,75 +31,75 @@ boolean autoReplay = false; // Om autoreplay er slået til/fra
 float volume = 0.2; // Variablem fra volume.. Går i et interval af 0,5 fra 0 til 2,5
 
 
-void setup(){
+void setup() {
   fullScreen();
   frameRate(fps_max);
   smooth(); 
   noStroke();
-  
+
   menuSound = new SoundFile(this, "Menu.mp3"); // Sætter variablen for vores menu-sound lydfil.
   menuSound.amp(volume); // Sætter volumen for lydfilen til den værdi, vores volumen variabel er sat til.
   menuSound.loop(); // Slår lyden til med loop-funktionen i brug.
-  
+
   button = new SoundFile(this, "Button.mp3"); // Sætter variablen for vores knap lydfil.
   button.amp(0.6); // Sætter volumen til en konstant (og derved ikke justerbar) værdi.
 }
 
-void draw(){
+void draw() {
   // Den tjekker, hvilken menu vi er i og derfor hvilke funktioner, der skal kaldes
-  if(menu==1){
-    background(bg_farve,bg_farve,bg_farve);
+  if (menu==1) {
+    background(bg_farve, bg_farve, bg_farve);
     bgUpdate(); // Opdaterer farven på vores baggrund.
     menuSetup();
     cursor();
-  }else if(menu==2){
+  } else if (menu==2) {
     noCursor();
     drawMap(); // Funktionen findes i MAP
     simulate(); // Funktionen findes i PLAYER
     spawnPlayer(); // Funktionen findes i PLAYER
     pointUpdate(); // Funktionen for opdateringen af spillerens point
-    if(enemySpawned==false){
-      spawnEnemy(100,0,1);
+    if (enemySpawned==false) {
+      spawnEnemy(100, 0, 1);
     }
     updateEnemy();
     checkCol();
-  }else if(menu==3){
-    background(bg_farve,bg_farve,bg_farve);
+  } else if (menu==3) {
+    background(bg_farve, bg_farve, bg_farve);
     bgUpdate();
     menuSetup();
     cursor();
-  }else if(menu==4){
-    fill(220,20,60,80);
-    rect(0,0,width,height);
+  } else if (menu==4) {
+    fill(220, 20, 60, 80);
+    rect(0, 0, width, height);
     gameOver();
     cursor();
   }
-  
+
   // Fps-tælleren bliver slået til (lige meget hvilken menu man er i - undtagen game over menuen ^^)
-  if(menu!=4){
+  if (menu!=4) {
     fpsCounter();
   }
 }
 
 // Denne funktion opdaterer farven på baggrunden
-void bgUpdate(){
+void bgUpdate() {
   // Vores betingelser tjekker, om farven skal blive lysere eller mørkere ved hjælp af vores boolean variabel; bgT
-  if(bgT == true){ 
-    if(bg_farve>180){
+  if (bgT == true) { 
+    if (bg_farve>180) {
       bg_farve = bg_farve-0.5;
-    }else{
+    } else {
       bgT = false;
     }
-  }else{
-    if(bg_farve<220){
+  } else {
+    if (bg_farve<220) {
       bg_farve = bg_farve+0.5;
-    }else{
+    } else {
       bgT = true;
     }
   }
 }
 
-void resetValues(){
+void resetValues() {
   // Spiller - resetter værdiere for spilleren
   px = width/5;
   py = mapY;
@@ -107,25 +107,25 @@ void resetValues(){
   ay = 0;
   points = 0;
   //Enemies - resetter fjenderne (spikes)
-  spawnEnemy(1000,0,1);
-  spawnEnemy(1000,0,2);
+  spawnEnemy(1000, 0, 1);
+  spawnEnemy(1000, 0, 2);
 } 
 
-void playerDeath(){
-  if(autoReplay==false){ // Tjekker om man har slået autoplay til.
+void playerDeath() {
+  if (autoReplay==false) { // Tjekker om man har slået autoplay til.
     finalScore = points;
     menu = 4;
     resetValues();
-  }else{
+  } else {
     resetValues();
     menu = 2;
   }
 }
 
-void pointUpdate(){
+void pointUpdate() {
   points = points+1; // Tilføjer 1 point per. frame
   textAlign(CENTER);
-  fill(255,255,255);
+  fill(255, 255, 255);
   textSize(100);
-  text(points,width/2,height*1/4);
+  text(points, width/2, height*1/4);
 }
