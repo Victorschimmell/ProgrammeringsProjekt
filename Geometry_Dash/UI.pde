@@ -368,7 +368,6 @@ void menuSetup(){
         rect(-190,45,50,10,5,5,5,5);
       }
     }
-    
    popMatrix();
     
     //Button "Back"
@@ -381,7 +380,20 @@ void menuSetup(){
       fill(0,0,0, 40);
       rect(0,0,buttonWidth,buttonHeight,10,10,10,10);
     }
-    popMatrix();
+    
+    // Tekst på knapperne
+   textSize(50);
+   fill(bg_farve,bg_farve,bg_farve);
+   text("Back",buttonWidth/2,buttonHeight*2/3);
+   popMatrix();
+   pushMatrix();
+   translate(width/3-buttonWidth/2,height*3/7+buttonHeight/2);
+   if(autoReplay==true){
+     text("Autoplay: on",buttonWidth/2,buttonHeight*2/3);
+   }else{
+     text("Autoplay: off",buttonWidth/2,buttonHeight*2/3);
+   }
+   popMatrix();
   }
 }
 
