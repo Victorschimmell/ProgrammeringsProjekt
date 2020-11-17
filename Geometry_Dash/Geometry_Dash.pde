@@ -36,7 +36,7 @@ void setup() {
   frameRate(fps_max);
   smooth(); 
   noStroke();
-
+  
   menuSound = new SoundFile(this, "Menu.mp3"); // Sætter variablen for vores menu-sound lydfil.
   menuSound.amp(volume); // Sætter volumen for lydfilen til den værdi, vores volumen variabel er sat til.
   menuSound.loop(); // Slår lyden til med loop-funktionen i brug.
